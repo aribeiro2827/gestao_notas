@@ -1,0 +1,23 @@
+import json
+
+def carregar_db():
+    try:
+        with open("database.json", "r") as f:
+            return json.load(f)
+    except:
+        return {"alunos": [], "disciplinas": [], "notas": []}
+
+def salvar_db(db):
+    with open("database.json", "w") as f:
+        json.dump(db, f, indent=4)
+
+def cadastrar_aluno():
+    nome = input("Nome do aluno: ")
+
+    db = carregar_db()
+    novo_id = len(db["alunos"]) + 1
+
+    db["alunos"].append({"id": novo_id, "nome": nome})
+    salvar_db(db)
+
+    print("Aluno cadastrado com sucesso!")

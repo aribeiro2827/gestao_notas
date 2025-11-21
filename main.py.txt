@@ -1,0 +1,31 @@
+from alunos import cadastrar_aluno
+from disciplinas import cadastrar_disciplina
+from notas import lancar_nota, consultar_boletim
+
+def menu():
+    while True:
+        print("\n=== Sistema de Gestão de Notas ===")
+        print("1 - Cadastrar aluno")
+        print("2 - Cadastrar disciplina")
+        print("3 - Lançar nota")
+        print("4 - Consultar boletim")
+        print("0 - Sair")
+
+        opcao = input("Escolha uma opção: ")
+
+        if opcao == "1":
+            cadastrar_aluno()
+        elif opcao == "2":
+            cadastrar_disciplina()
+        elif opcao == "3":
+            lancar_nota()
+        elif opcao == "4":
+            consultar_boletim()
+        elif opcao == "0":
+            print("Saindo...")
+            break
+        else:
+            print("Opção inválida!")
+
+if __name__ == "__main__":
+    menu()

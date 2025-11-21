@@ -1,0 +1,12 @@
+from alunos import carregar_db, salvar_db
+
+def cadastrar_disciplina():
+    nome = input("Nome da disciplina: ")
+
+    db = carregar_db()
+    novo_id = len(db["disciplinas"]) + 1
+
+    db["disciplinas"].append({"id": novo_id, "nome": nome})
+    salvar_db(db)
+
+    print("Disciplina cadastrada com sucesso!")
